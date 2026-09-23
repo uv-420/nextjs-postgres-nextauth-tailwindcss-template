@@ -14,17 +14,16 @@ export default {
     ]
   },
 
-  webpack(config, { dev }) {
-if (dev) {
-    config.module.rules.push({
-      test: /\.(jsx|tsx)$/,
-      exclude: [/node_modules/],
-      use: [{
-        loader: '@dhiwise/component-tagger/nextLoader',
-      }],
-    });
-  }
-
+  webpack(config: any, { dev }: { dev: boolean }) {
+    if (dev) {
+      config.module.rules.push({
+        test: /\.(jsx|tsx)$/,
+        exclude: [/node_modules/],
+        use: [{
+          loader: '@dhiwise/component-tagger/nextLoader',
+        }],
+      });
+    }
     return config;
   }
 };
