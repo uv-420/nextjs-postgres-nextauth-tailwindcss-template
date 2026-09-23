@@ -1,4 +1,9 @@
-export { auth as middleware } from '@/lib/auth';
+import NextAuth from 'next-auth';
+import { authConfig } from '@/lib/auth';
+
+const { auth } = NextAuth(authConfig);
+
+export { auth as middleware };
 
 // Don't invoke Middleware on some paths
 export const config = {
